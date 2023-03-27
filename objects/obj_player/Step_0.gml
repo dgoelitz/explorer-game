@@ -21,8 +21,20 @@ if global.unpausing == true
 function startScrolling() {
 	scrolling = true;
 	global.paused = true;
-	instance_deactivate_object(obj_enemy);
-	instance_deactivate_object(obj_enemysolid);
+	
+	instance_activate_object(obj_enemy);
+	with (obj_enemy) {
+		x += (other.scrolling_x / 2) * other.timer_scrolling;
+		y += (other.scrolling_y / 2) * other.timer_scrolling;
+		instance_deactivate_object(self);
+	}
+	
+	instance_activate_object(obj_enemysolid);
+	with (obj_enemysolid) {
+		x += (other.scrolling_x / 2) * other.timer_scrolling;
+		y += (other.scrolling_y / 2) * other.timer_scrolling;
+		instance_deactivate_object(self);
+	}
 }
 	
 	
