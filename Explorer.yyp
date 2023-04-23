@@ -35,8 +35,10 @@
   "resources": [
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},},
+    {"id":{"name":"obj_chest","path":"objects/obj_chest/obj_chest.yy",},},
     {"id":{"name":"obj_cannon","path":"objects/obj_cannon/obj_cannon.yy",},},
     {"id":{"name":"spr_villager0","path":"sprites/spr_villager0/spr_villager0.yy",},},
+    {"id":{"name":"spr_chestopen","path":"sprites/spr_chestopen/spr_chestopen.yy",},},
     {"id":{"name":"spr_switchup","path":"sprites/spr_switchup/spr_switchup.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"spr_health","path":"sprites/spr_health/spr_health.yy",},},
@@ -44,6 +46,7 @@
     {"id":{"name":"spr_cannon","path":"sprites/spr_cannon/spr_cannon.yy",},},
     {"id":{"name":"fnt_text","path":"fonts/fnt_text/fnt_text.yy",},},
     {"id":{"name":"obj_fire","path":"objects/obj_fire/obj_fire.yy",},},
+    {"id":{"name":"spr_chest","path":"sprites/spr_chest/spr_chest.yy",},},
     {"id":{"name":"obj_textbox","path":"objects/obj_textbox/obj_textbox.yy",},},
     {"id":{"name":"obj_switch","path":"objects/obj_switch/obj_switch.yy",},},
     {"id":{"name":"obj_globaltracker","path":"objects/obj_globaltracker/obj_globaltracker.yy",},},
