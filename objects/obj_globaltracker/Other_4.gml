@@ -15,3 +15,29 @@ for (i = 0; i < array_length(roomSwitches); i++) {
 				sprite_index = spr_switchdown;
 	}
 }
+
+roomSwitches = [];
+
+if room == dungeon0 {
+	roomItems = dungeon0Items;
+}
+
+if roomItems[0]
+	map = true;
+else
+	map = false;
+
+for (i = 0; i < array_length(roomItems); i++) {
+	if roomItems[i] {
+		with obj_chest
+			if other.i == chestId {
+				sprite_index = spr_chestopen;
+				done = true;
+			}
+	}
+}
+
+
+instance_deactivate_object(obj_enemy);
+instance_deactivate_object(obj_enemysolid);
+instance_activate_region(0, 0, 160, 90, true);
