@@ -9,6 +9,7 @@ if global.unpausing == true
 function startScrolling() {
 	scrolling = true;
 	global.paused = true;
+	destroyMap();
 	
 	instance_activate_object(obj_enemy);
 	with (obj_enemy) {
@@ -30,6 +31,9 @@ function scrollRight() {
 	scrolling_x = -2;
 	scrolling_y = 0;
 	timer_scrolling = 160;
+	roomMap[roomLoc[1]][roomLoc[0]+1] = 2;
+	roomMap[roomLoc[1]][roomLoc[0]] = 1;
+	roomLoc[0] += 1;
 	startScrolling();
 }
 	
@@ -37,6 +41,9 @@ function scrollLeft() {
 	scrolling_x = 2;
 	scrolling_y = 0;
 	timer_scrolling = 160;
+	roomMap[roomLoc[1]][roomLoc[0]-1] = 2;
+	roomMap[roomLoc[1]][roomLoc[0]] = 1;
+	roomLoc[0] -= 1;
 	startScrolling();
 }
 	
@@ -44,6 +51,9 @@ function scrollDown() {
 	scrolling_x = 0;
 	scrolling_y = -2;
 	timer_scrolling = 90;
+	roomMap[roomLoc[1]+1][roomLoc[0]] = 2;
+	roomMap[roomLoc[1]][roomLoc[0]] = 1;
+	roomLoc[1] += 1;
 	startScrolling();
 }
 	
@@ -51,7 +61,11 @@ function scrollUp() {
 	scrolling_x = 0;
 	scrolling_y = 2;
 	timer_scrolling = 90;
+	roomMap[roomLoc[1]-1][roomLoc[0]] = 2;
+	roomMap[roomLoc[1]][roomLoc[0]] = 1;
+	roomLoc[1] -= 1;
 	startScrolling();
+	//TODO: fix map color changes
 }
 
 
@@ -75,12 +89,30 @@ if scrolling
 }
 
 if keyboard_check_pressed(ord("M")) && map_open == false && global.paused == false {
-	global.paused = true;
 	map_open = true;
 	
-	for (let i = 0; i < array_length(dungeon0Map); i++ {
-		for (let j = 0; j < array_length(dungeon0Map)[i]; j++ {
-			
+	roomCoords = [];
+	if (room = dungeon0) {
+		roomCoords = dungeon0Coords;
+	}
+	
+	for (var i = 0; i < array_length(roomMap); i++) {
+		for (var j = 0; j < array_length(roomMap[i]); j++) {
+			if roomMap[i][j] >= 0
+				instance_create_depth(80 + roomCoords[i][j][0],
+									  45 + roomCoords[i][j][1],
+									  -2000,
+									  map_objects[roomMap[i][j]]);
 		}
 	}
+}
+
+if keyboard_check_released(ord("M")) && map_open == true {
+	map_open = false;
+	destroyMap();
+}
+
+function destroyMap() {
+	for (var i = 0; i < array_length(map_objects); i++)
+		instance_destroy(map_objects[i]);
 }

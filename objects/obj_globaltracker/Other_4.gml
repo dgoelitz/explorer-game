@@ -1,7 +1,13 @@
 roomSwitches = [];
+roomItems = [];
+roomMap = [];
+roomLoc = [];
 
 if room == dungeon0 {
 	roomSwitches = dungeon0Switches;
+	roomItems = dungeon0Items;
+	roomMap = dungeon0Map;
+	roomLoc = dungeon0Loc;
 }
 
 for (i = 0; i < array_length(roomSwitches); i++) {
@@ -16,11 +22,6 @@ for (i = 0; i < array_length(roomSwitches); i++) {
 	}
 }
 
-roomSwitches = [];
-
-if room == dungeon0 {
-	roomItems = dungeon0Items;
-}
 
 if roomItems[0]
 	map = true;
