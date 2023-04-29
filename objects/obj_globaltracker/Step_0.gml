@@ -65,7 +65,6 @@ function scrollUp() {
 	roomMap[roomLoc[1]][roomLoc[0]] = 1;
 	roomLoc[1] -= 1;
 	startScrolling();
-	//TODO: fix map color changes
 }
 
 
@@ -88,7 +87,7 @@ if scrolling
 	}
 }
 
-if keyboard_check_pressed(ord("M")) && map_open == false && global.paused == false {
+if keyboard_check_pressed(ord("M")) && roomItems[0] && !map_open && !global.paused {
 	map_open = true;
 	
 	roomCoords = [];
@@ -107,7 +106,7 @@ if keyboard_check_pressed(ord("M")) && map_open == false && global.paused == fal
 	}
 }
 
-if keyboard_check_released(ord("M")) && map_open == true {
+if keyboard_check_released(ord("M")) && map_open {
 	map_open = false;
 	destroyMap();
 }

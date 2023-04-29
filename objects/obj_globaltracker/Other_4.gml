@@ -6,8 +6,11 @@ roomLoc = [];
 if room == dungeon0 {
 	roomSwitches = dungeon0Switches;
 	roomItems = dungeon0Items;
-	roomMap = dungeon0Map;
+	roomMap = dungeon0Map
 	roomLoc = dungeon0Loc;
+	roomMap[roomLoc[1]][roomLoc[0]] = 1;
+	array_copy(dungeon0Loc, 0, dungeon0StartLoc, 0, 2);
+	roomMap[roomLoc[1]][roomLoc[0]] = 2;
 }
 
 for (i = 0; i < array_length(roomSwitches); i++) {
